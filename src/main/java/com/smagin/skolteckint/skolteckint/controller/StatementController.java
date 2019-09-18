@@ -18,7 +18,7 @@ public class StatementController {
         return "Hello";
     }
 
-    @GetMapping()
+    @GetMapping("/helloa")
     public List<Statement> getAll(){
         return statementService.getAll();
     }

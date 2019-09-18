@@ -19,12 +19,13 @@ public class StatementStatementDao implements com.smagin.skolteckint.skolteckint
 
     @Override
     public void save(LocalDate date, String dater, int value) {
-        jdbcTemplate.update("INSERT INTO statement VALUES (date, dater, value)", 5, "2019-09-09",1,1);
+        jdbcTemplate.update("INSERT INTO STATEMENT VALUES (date, dater, value)", 5, "2019-09-09",1,1);
     }
 
     @Override
-    public List<Statement> getAllStatementsByTimePeriod(LocalDateTime start, LocalDateTime end) {
-        return jdbcTemplate.query("select * from statement", new StatementRowMapper());
+    public List<Statement> getAllStatementsByTimePeriod(LocalDateTime start, LocalDateTime endTime) {
+        return jdbcTemplate.query("select * from STATEMENT where DATE_VALUE between start and endTime",
+                new StatementRowMapper());
     }
 
     @Override

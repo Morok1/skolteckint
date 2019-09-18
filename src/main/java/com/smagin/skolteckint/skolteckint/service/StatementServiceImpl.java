@@ -21,4 +21,6 @@ public class StatementServiceImpl {
         log.info("Method getAll is performed... Done");
         return statements;
     }
+
+    public List<>
 }
