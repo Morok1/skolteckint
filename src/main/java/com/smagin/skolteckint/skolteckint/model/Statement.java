@@ -1,13 +1,13 @@
 package com.smagin.skolteckint.skolteckint.model;
 
-import com.sun.istack.internal.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class Statement {
     @NotNull
     private Long id;

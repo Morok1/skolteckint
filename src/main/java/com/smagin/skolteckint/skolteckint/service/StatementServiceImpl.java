@@ -1,36 +1,24 @@
 package com.smagin.skolteckint.skolteckint.service;
 
-import com.smagin.skolteckint.skolteckint.model.DaterType;
+import com.smagin.skolteckint.skolteckint.dao.api.StatementDao;
 import com.smagin.skolteckint.skolteckint.model.Statement;
-import com.smagin.skolteckint.skolteckint.service.api.StatementService;
+import lombok.extern.java.Log;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 
 @Service
-public class StatementServiceImpl implements StatementService {
+@Log
+public class StatementServiceImpl {
+    @Autowired
+    private StatementDao dao;
 
-
-    @Override
-    public void save() {
-
-    }
-
-    @Override
-    public List<Statement> getAllStatementsByTimePeriod(LocalDateTime start, LocalDateTime end) {
-        return null;
-    }
-
-    @Override
-    public List<Statement> getAllStatementsByType(DaterType type) {
-        return null;
-    }
-
-    @Override
-    public Map<DaterType, Double> getAverageOfDateType() {
-        return null;
+    public List<Statement> getAll() {
+        log.info("Method getAll is performed...");
+        List<Statement> statements = dao.getAll();
+        log.info("Method getAll is performed... Done");
+        return statements;
     }
 }
