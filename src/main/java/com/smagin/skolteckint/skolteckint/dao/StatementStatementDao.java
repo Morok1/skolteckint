@@ -46,7 +46,7 @@ public class StatementStatementDao implements com.smagin.skolteckint.skolteckint
 
         for (DaterType daterType: DaterType.values()) {
             Double averageDateType = jdbcTemplate.queryForObject("SELECT avg(value) FROM STATEMENT where dater="
-                    + daterType., Double.class);
+                    + daterType.getDescription(), Double.class);
 
             daterTypeDoubleMap.put(daterType, averageDateType);
 
