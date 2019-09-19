@@ -7,5 +7,5 @@ create table STATEMENT(
 );
 
 insert into STATEMENT (id, date_value, dater, value) values (1,'2019-10-10', 1,1);
-insert into STATEMENT (id, date_value, dater, value) values (1,'2019-11-10', 1,1);
-insert into STATEMENT (id, date_value, dater, value) values (1,'2019-12-10', 1,1);
+insert into STATEMENT (id, date_value, dater, value) values (2,'2019-11-10', 1,1);
+insert into STATEMENT (id, date_value, dater, value) values (3,'2019-12-10', 1,1);
