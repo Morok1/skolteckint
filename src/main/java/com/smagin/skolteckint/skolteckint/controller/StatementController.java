@@ -30,17 +30,17 @@ public class StatementController {
     }
 
     @GetMapping("/date")
-    public List<Date> getDate(@RequestParam("time_start") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date time_start,
-                        @RequestParam("time_end") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date time_end ){
-        List<Date> dates = new ArrayList<>();
-        dates.add(time_start);
-        dates.add(time_end);
-        return dates;
+    public List<Statement> getDate(@RequestParam("time_start") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Date time_start,
+                        @RequestParam("time_end") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Date time_end ){
+
+        List<Statement>  statements = statementService.getAllStatementsByTimePeriod(time_start, time_end);
+
+        return statements;
     }
 
     @GetMapping("/statements_by_date/{start_date}/{end_date}")
-    public List<Statement> getAllStatementsByTimePeriod(@PathVariable("start_date") LocalDateTime startDate,
-                                                        @PathVariable("end_date") LocalDateTime timeEnd){
+    public List<Statement> getAllStatementsByTimePeriod(@PathVariable("start_date") Date startDate,
+                                                        @PathVariable("end_date") Date timeEnd){
         return statementService.getAllStatementsByTimePeriod(startDate, timeEnd);
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 
@@ -26,7 +27,7 @@ public class StatementServiceImpl {
         return statements;
     }
 
-    public List<Statement> getAllStatementsByTimePeriod(LocalDateTime start, LocalDateTime end){
+    public List<Statement> getAllStatementsByTimePeriod(Date start, Date end){
         log.info("Method getAllStatementByTimePeriod begin works ...");
 
         List<Statement> statements = dao.getAllStatementsByTimePeriod(start, end);

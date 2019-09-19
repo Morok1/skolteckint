@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -22,8 +23,10 @@ public class StatementStatementDao implements com.smagin.skolteckint.skolteckint
         jdbcTemplate.update("INSERT INTO STATEMENT VALUES (date, dater, value)", 5, "2019-09-09",1,1);
     }
 
+
+
     @Override
-    public List<Statement> getAllStatementsByTimePeriod(LocalDateTime start, LocalDateTime endTime) {
+    public List<Statement> getAllStatementsByTimePeriod(Date start, Date endTime) {
         return jdbcTemplate.query("select * from STATEMENT where DATE_VALUE between start and endTime",
                 new StatementRowMapper());
     }
