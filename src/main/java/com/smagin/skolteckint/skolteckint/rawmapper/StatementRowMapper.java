@@ -10,11 +10,12 @@ public class StatementRowMapper implements RowMapper<Statement> {
     @Override
     public Statement mapRow(ResultSet rs, int i) throws SQLException {
         final Statement statement = new Statement();
-        statement.setId((long) rs.getInt("id"));
-        statement.setDate(rs.getDate("date"));
-        statement.setDaterType(rs.getString("daterType"));
-        statement.setValue(rs.getInt("date"));
 
-        return null;
+        statement.setId((long) rs.getInt("id"));
+        statement.setDate(rs.getDate("date_value"));
+        statement.setDaterType(rs.getString("dater"));
+        statement.setValue(rs.getInt("value"));
+
+        return statement;
     }
 }
