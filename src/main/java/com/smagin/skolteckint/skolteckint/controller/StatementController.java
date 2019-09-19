@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,8 +28,8 @@ public class StatementController {
     }
 
     @GetMapping("/date")
-    public List<Statement> getDate(@RequestParam("time_start") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Date time_start,
-                        @RequestParam("time_end") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Date time_end ){
+    public List<Statement> getDate(@RequestParam("time_start") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date time_start,
+                        @RequestParam("time_end") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date time_end ){
 
         List<Statement>  statements = statementService.getAllStatementsByTimePeriod(time_start, time_end);
 
