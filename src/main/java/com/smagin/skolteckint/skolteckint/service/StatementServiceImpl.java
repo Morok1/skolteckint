@@ -1,14 +1,15 @@
 package com.smagin.skolteckint.skolteckint.service;
 
 import com.smagin.skolteckint.skolteckint.dao.api.StatementDao;
+import com.smagin.skolteckint.skolteckint.model.DaterType;
 import com.smagin.skolteckint.skolteckint.model.Statement;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -34,5 +35,15 @@ public class StatementServiceImpl {
 
         log.info("Method getAllStatementByTimePeriod begin works ... Done");
         return statements;
+    }
+
+    public Map<DaterType, Double> getAllStatementByTimePeriod(){
+        log.info("Method getAllStatementByTimePeriod begin works ...");
+
+        Map<DaterType, Double> daterTypeDoubleMap  = dao.getAverageOfDateType();
+
+        log.info("Method getAllStatementByTimePeriod begin works ... Done");
+
+        return daterTypeDoubleMap;
     }
 }

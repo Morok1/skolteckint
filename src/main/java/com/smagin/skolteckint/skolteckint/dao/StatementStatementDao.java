@@ -41,12 +41,15 @@ public class StatementStatementDao implements com.smagin.skolteckint.skolteckint
 
     @Override
     public Map<DaterType, Double> getAverageOfDateType() {
-        Map<DaterType, Double> daterTypeDoubleMap = new HashMap<>();
+        Map<DaterType, Double> daterTypeDoubleMap =
+                new HashMap<>();
 
         for (DaterType daterType: DaterType.values()) {
             Double averageDateType = jdbcTemplate.queryForObject("SELECT avg(value) FROM STATEMENT where dater="
-                    + daterType, Double.class);
+                    + daterType., Double.class);
+
             daterTypeDoubleMap.put(daterType, averageDateType);
+
         }
 
         return daterTypeDoubleMap;

@@ -1,12 +1,14 @@
 package com.smagin.skolteckint.skolteckint.model;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@RequiredArgsConstructor
+@Getter
+@AllArgsConstructor
 public enum DaterType {
-    ENGINE,
-    DOOR,
-    WHEEL;
+    ENGINE("ENGINE"),
+    DOOR("DOOR"),
+    WHEEL("WHEEL");
 
     private String description;
 }

@@ -1,5 +1,6 @@
 package com.smagin.skolteckint.skolteckint.controller;
 
+import com.smagin.skolteckint.skolteckint.model.DaterType;
 import com.smagin.skolteckint.skolteckint.model.Statement;
 import com.smagin.skolteckint.skolteckint.service.StatementServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class StatementController {
@@ -40,5 +42,10 @@ public class StatementController {
     public List<Statement> getAllStatementsByTimePeriod(@PathVariable("start_date") Date startDate,
                                                         @PathVariable("end_date") Date timeEnd){
         return statementService.getAllStatementsByTimePeriod(startDate, timeEnd);
+    }
+
+    @GetMapping("/daters")
+    public Map<DaterType, Double> getAllStatementByTimePeriod(){
+        return statementService.getAllStatementByTimePeriod();
     }
 }
