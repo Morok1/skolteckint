@@ -1,5 +1,9 @@
 package com.smagin.kafkaproducer.producer;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smagin.skolteckint.skolteckint.model.Statement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,6 +15,8 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
+
+import java.io.IOException;
 
 
 @SpringBootConfiguration
@@ -76,7 +82,6 @@ public class ProducerApplication {
                 statementKafkaTemplate.send(greetingTopicName, statement);
             }
             }
-
 
 
 

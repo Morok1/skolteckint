@@ -1,5 +1,9 @@
 package com.smagin.kafkaproducer.producer.config;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smagin.skolteckint.skolteckint.model.Statement;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -12,6 +16,7 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,6 +56,22 @@ public class KafkaProducerConfig {
     @Bean
     public KafkaTemplate<String, Statement> statementKafkaTemplate(){
         return new KafkaTemplate<>(statementProducerFactory());
+    }
+
+
+    @Bean
+    public JsonDeserializer jsonDeserializer() {
+        return new JsonDeserializer() {
+            @Override
+            public Object deserialize(JsonParser p, DeserializationContext context) throws IOException {
+                return null;
+            }
+        };
+    }
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
     }
 
 }
